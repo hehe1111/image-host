@@ -12,7 +12,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "yarn build",
-      "post-commit": "git add . && git commit -m 'update index.html'"
+      "post-commit": "git add . && git commit -m 'update dist/index.html'"
     }
   },
   "keywords": [
