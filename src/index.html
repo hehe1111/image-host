@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <title>图床</title>
+    <link rel="stylesheet" href="../assets/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="images">
+        <template v-if="!images || images.length === 0">
+          <p>空空如也~</p>
+        </template>
+        <template v-else>
+          <div v-for="i in images" :key="i.name" class="image-container">
+            <img src="/assets/loading.png" :data-src="i.path" :alt="i.name" />
+            <div class="image-info">
+              <p>{{ i.name }}</p>
+              <p class="size">
+                {{ i.size }}kb （{{ i.wh.width }} x {{ i.wh.height }}）
+              </p>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <script src="../vendor/vue.min.js" defer="true"></script>
+    <script src="../assets/main.js" defer="true"></script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "image-host",
+  "version": "1.0.0",
+  "main": "main.js",
+  "devDependencies": {
+    "globby": "^11.0.1",
+    "husky": "^4.3.6",
+    "image-size": "^0.9.3"
+  },
+  "scripts": {
+    "build": "node ./build.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn build",
+      "post-commit": "git add . && git commit -m 'update index.html'"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "description": ""
+}
