@@ -42,7 +42,7 @@ new Vue({
       const onCopy = event => {
         event.clipboardData.setData(
           'text/plain',
-          `${window.location.origin}/image-host${this.copiedLink.slice(1)}`
+          `${window.location.origin}/image-host${this.copiedLink.slice(2)}`
         )
         event.preventDefault()
       }
