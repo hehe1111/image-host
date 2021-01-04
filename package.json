@@ -1,7 +1,6 @@
 {
   "name": "image-host",
-  "version": "1.0.0",
-  "main": "main.js",
+  "version": "0.0.1",
   "devDependencies": {
     "globby": "^11.0.1",
     "husky": "^4.3.6",
@@ -10,14 +9,13 @@
   "scripts": {
     "build": "node ./build.js"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn build",
-      "post-commit": "git add . && git commit -m 'update index.html'"
-    }
-  },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "Image host",
+    "GitHub",
+    "Vue",
+    "Scss"
+  ],
+  "author": "hehe1111",
   "license": "MIT",
-  "description": ""
+  "description": "Image host service."
 }

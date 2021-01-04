@@ -3,63 +3,104 @@
 *::after {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-.images {
+.transform300ms, #app .images .image-container .image-info, #app .images .image-container .copy-link, #app .copy-success {
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  will-change: transform;
+}
+
+.borderRadius4px, #app .images .image-container, #app .images .image-container .copy-link, #app .copy-success {
+  border-radius: 4px;
+}
+
+#app {
+  position: relative;
+  padding-top: 0.1px;
+}
+
+#app .images {
+  margin: 50px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-@media (max-width: 800px) {
-  .image-container {
-    --size: 300;
-  }
-}
-@media (min-width: 801px) {
-  .image-container {
-    --size: 400;
-  }
-}
-.image-container {
-  /* http://www.ruanyifeng.com/blog/2017/05/css-variables.html */
-  width: calc(var(--size) * 1px);
-  height: calc(var(--size) / 16 * 9 * 1px);
-  border-radius: 8px;
+#app .images .image-container {
   margin: 16px 8px;
   background-color: #000;
   overflow: hidden;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.6);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.6);
+          box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.6);
+  -webkit-transition: width 0.2s, height 0.2s;
   transition: width 0.2s, height 0.2s;
 }
-.image-container:hover {
-  box-shadow: 2px 2px 6px 2px rgba(0, 0, 0, 0.6);
+
+@media (max-width: 800px) {
+  #app .images .image-container {
+    width: 300px;
+    height: 168.75px;
+  }
 }
 
-.image-container img {
+@media (min-width: 801px) {
+  #app .images .image-container {
+    width: 400px;
+    height: 225px;
+  }
+}
+
+#app .images .image-container:hover {
+  -webkit-box-shadow: 2px 2px 6px 2px rgba(0, 0, 0, 0.6);
+          box-shadow: 2px 2px 6px 2px rgba(0, 0, 0, 0.6);
+}
+
+#app .images .image-container:hover img {
+  /* https://wallhaven.cc/ */
+  /* https://developer.mozilla.org/zh-CN/docs/Web/CSS/filter */
+  -webkit-filter: brightness(130%);
+          filter: brightness(130%);
+}
+
+#app .images .image-container:hover .image-info,
+#app .images .image-container:hover .copy-link {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+#app .images .image-container img {
   width: 100%;
   display: block;
 }
-.image-container img:hover {
-  /* https://wallhaven.cc/ */
-  /* https://developer.mozilla.org/zh-CN/docs/Web/CSS/filter */
-  filter: brightness(130%);
-}
 
-.image-info {
+#app .images .image-container .image-info {
   width: 100%;
   padding: 10px 4px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   position: absolute;
   bottom: 0;
-  transform: translateY(100%);
-  transition: transform 0.3s;
-  will-change: transform;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
   color: #fff;
   font-size: 14px;
   text-align: center;
@@ -67,10 +108,37 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.image-container:hover .image-info {
-  transform: translateY(0);
+
+#app .images .image-container .image-info .size {
+  margin-top: 4px;
 }
 
-.image-info .size {
-  margin-top: 4px;
+#app .images .image-container .copy-link {
+  padding: 4px 8px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  outline: none;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  -webkit-transform: translateY(calc(-100% - 8px));
+          transform: translateY(calc(-100% - 8px));
+  color: #fff;
+}
+
+#app .copy-success {
+  padding: 8px 24px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 8px;
+  right: 8px;
+  -webkit-transform: translateY(calc(-100% - 8px));
+          transform: translateY(calc(-100% - 8px));
+  color: #fff;
+}
+
+#app .copy-success.show {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
