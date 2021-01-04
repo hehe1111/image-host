@@ -25,3 +25,7 @@ TODO:
 ### 性能优化方法
 
 压缩 html/css/js 文件
+
+## 参考链接
+
+- [host github pages from /dist folder in master branch](https://stackoverflow.com/a/42501045/14449377)

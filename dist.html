@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
     />
     <title>图床</title>
-    <link rel="stylesheet" href="../assets/style.css" />
+    <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
     <div id="app">
@@ -17,7 +17,7 @@
         </template>
         <template v-else>
           <div v-for="i in images" :key="i.name" class="image-container">
-            <img src="/assets/loading.png" :data-src="i.path" :alt="i.name" />
+            <img src="./assets/loading.png" :data-src="i.path" :alt="i.name" />
             <div class="image-info">
               <p>{{ i.name }}</p>
               <p class="size">
@@ -34,8 +34,8 @@
       <div ref="copySuccess" class="copy-success">复制成功</div>
     </div>
 
-    <script src="../vendor/vue.min.js" defer="true"></script>
-    <script src="../assets/main.js" defer="true"></script>
+    <script src="./vendor/vue.min.js" defer="true"></script>
+    <script src="./assets/main.js" defer="true"></script>
     <script type="application/json" id="__images_path__">[{"path":"/assets/images/wallhaven-j8oe3y.png","name":"wallhaven-j8oe3y.png","size":4053,"wh":{"height":2160,"width":3840,"type":"png"}}]</script>
 </body>
 </html>
