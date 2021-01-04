@@ -7,7 +7,7 @@
     "image-size": "^0.9.3"
   },
   "scripts": {
-    "build": "node ./build.js"
+    "build": "node ./build/index.js"
   },
   "keywords": [
     "Image host",
