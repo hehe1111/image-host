@@ -7,8 +7,8 @@ const sizeOf = require('image-size')
 const patterns = ['png', 'jpg', 'jpeg', 'gif', 'ico', 'webp'].map(
   ext => `assets/images/*.${ext}`
 )
-const TEMPLATE_HTML = './src.html'
-const DIST_HTML = './dist.html'
+const TEMPLATE_HTML = './template.html'
+const DIST_HTML = './index.html'
 globby(patterns).then(images => {
   const html = fs
     .readFileSync(TEMPLATE_HTML)
