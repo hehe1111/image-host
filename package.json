@@ -9,6 +9,12 @@
   "scripts": {
     "build": "node ./build/index.js"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn build",
+      "post-commit": "git add . && git commit -m 'update index.html'"
+    }
+  },
   "keywords": [
     "Image host",
     "GitHub",
