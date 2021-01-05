@@ -49,6 +49,9 @@
           :style="`background-image: url(${previewImage.path})`"
         >
           <button @click="onClosePreview" class="close">X</button>
+          <a :download="createImageLink(previewImage.path)" class="download"
+            >⬇</a
+          >
         </div>
       </transition>
     </div>

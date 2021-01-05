@@ -45,7 +45,7 @@ new Vue({
       const onCopy = event => {
         event.clipboardData.setData(
           'text/plain',
-          `${window.location.origin}/image-host${this.copiedLink.slice(2)}`
+          this.createImageLink(this.copiedLink)
         )
         event.preventDefault()
       }
@@ -53,6 +53,9 @@ new Vue({
       this.$once('hook:beforeDestroy', () => {
         document.removeEventListener('copy', onCopy)
       })
+    },
+    createImageLink(imagePath) {
+      return `${window.location.origin}/image-host${imagePath.slice(2)}`
     },
     copyLink(imagePath) {
       this.copiedLink = imagePath
