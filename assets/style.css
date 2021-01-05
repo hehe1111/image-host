@@ -8,7 +8,7 @@
           box-sizing: border-box;
 }
 
-.transform300ms, #app .images .image-container .image-info, #app .images .image-container .copy-link, #app .copy-success, #app .preview.zoom-enter-active, #app .preview.zoom-leave-active, #app .preview .close:active,
+.transform300ms, #app .images .image-container .image-info, #app .copy-success, #app .preview.zoom-enter-active, #app .preview.zoom-leave-active, #app .preview .close:active,
 #app .preview .download:active {
   -webkit-transition: -webkit-transform 0.3s;
   transition: -webkit-transform 0.3s;
@@ -17,7 +17,7 @@
   will-change: transform;
 }
 
-.borderRadius4px, #app .images .image-container, #app .images .image-container .copy-link, #app .copy-success {
+.borderRadius4px, #app .images .image-container, #app .copy-success {
   border-radius: 4px;
 }
 
@@ -40,7 +40,7 @@
 }
 
 #app .images .image-container {
-  margin: 16px 8px;
+  margin: 8px;
   background-color: #000;
   overflow: hidden;
   position: relative;
@@ -61,8 +61,8 @@
 
 @media (max-width: 800px) {
   #app .images .image-container {
-    width: 300px;
-    height: 168.75px;
+    width: 320px;
+    height: 180px;
   }
 }
 
@@ -85,8 +85,7 @@
           filter: brightness(130%);
 }
 
-#app .images .image-container:hover .image-info,
-#app .images .image-container:hover .copy-link {
+#app .images .image-container:hover .image-info {
   -webkit-transform: translateY(0);
           transform: translateY(0);
 }
@@ -114,19 +113,6 @@
 
 #app .images .image-container .image-info .size {
   margin-top: 4px;
-}
-
-#app .images .image-container .copy-link {
-  padding: 4px 8px;
-  border: none;
-  background-color: rgba(0, 0, 0, 0.6);
-  outline: none;
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  -webkit-transform: translateY(calc(-100% - 8px));
-          transform: translateY(calc(-100% - 8px));
-  color: #fff;
 }
 
 #app .copy-success {

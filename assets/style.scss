@@ -32,13 +32,13 @@ $translucentGrey: rgba(0, 0, 0, 0.6);
 
     .image-container {
       @media (max-width: 800px) {
-        @include ratio16-9(300px);
+        @include ratio16-9(320px);
       }
       @media (min-width: 801px) {
         @include ratio16-9(400px);
       }
       @extend .borderRadius4px;
-      margin: 16px 8px;
+      margin: 8px;
       background-color: #000;
       overflow: hidden;
       position: relative;
@@ -56,8 +56,7 @@ $translucentGrey: rgba(0, 0, 0, 0.6);
           filter: brightness(130%);
         }
 
-        .image-info,
-        .copy-link {
+        .image-info {
           transform: translateY(0);
         }
       }
@@ -85,20 +84,6 @@ $translucentGrey: rgba(0, 0, 0, 0.6);
         .size {
           margin-top: 4px;
         }
-      }
-
-      .copy-link {
-        padding: 4px 8px;
-        border: none;
-        @extend .borderRadius4px;
-        background-color: $translucentGrey;
-        outline: none;
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        transform: translateY(calc(-100% - 8px));
-        @extend .transform300ms;
-        color: #fff;
       }
     }
   }

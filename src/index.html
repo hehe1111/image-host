@@ -25,15 +25,12 @@
               @click="onPreview(i)"
               class="lazy-loading-image"
             />
-            <div class="image-info">
+            <div @click="copyLink(i.path)" class="image-info">
               <p>{{ i.name }}</p>
               <p class="size">
                 {{ i.size }}kb （{{ i.wh.width }} x {{ i.wh.height }}）
               </p>
             </div>
-            <button @click="copyLink(i.path)" class="copy-link">
-              复制图片链接
-            </button>
           </div>
         </template>
       </div>
