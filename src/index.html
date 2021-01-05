@@ -17,7 +17,13 @@
         </template>
         <template v-else>
           <div v-for="i in images" :key="i.name" class="image-container">
-            <img src="../assets/loading.png" :data-src="i.path" :alt="i.name" />
+            <img
+              src="../assets/loading.png"
+              :data-src="i.path"
+              :alt="i.name"
+              @click="onPreview(i)"
+              class="lazy-loading-image"
+            />
             <div class="image-info">
               <p>{{ i.name }}</p>
               <p class="size">
@@ -32,6 +38,19 @@
       </div>
 
       <div ref="copySuccess" class="copy-success">复制成功</div>
+
+      <transition name="zoom">
+        <div
+          v-if="previewImage"
+          @wheel.prevent.stop
+          @touchmove.prevent.stop
+          ref="preview"
+          class="preview hide"
+          :style="`background-image: url(${previewImage.path})`"
+        >
+          <button @click="onClosePreview" class="close">X</button>
+        </div>
+      </transition>
     </div>
 
     <script src="../vendor/vue.min.js" defer="true"></script>

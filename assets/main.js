@@ -7,7 +7,8 @@ new Vue({
   data: {
     images,
     copiedLink: '',
-    timerId: ''
+    timerId: '',
+    previewImage: null
   },
   mounted() {
     this.handleLazyLoading()
@@ -15,7 +16,9 @@ new Vue({
   },
   methods: {
     handleLazyLoading() {
-      const lazyImages = [].slice.call(document.getElementsByTagName('img'))
+      const lazyImages = [].slice.call(
+        document.querySelectorAll('img.lazy-loading-image')
+      )
       const wHeight = window.innerHeight
 
       const lazyLoading = () => {
@@ -64,6 +67,17 @@ new Vue({
       const { classList } = this.$refs.copySuccess
       classList.add('show')
       this.timerId = setTimeout(() => classList.remove('show'), 2000)
+    },
+    onPreview(image) {
+      this.previewImage = image
+      this.$nextTick(() => {
+        /* 解决刷新页面时 defer 脚本导致的 .preview 元素闪现的问题 */
+        const { className, classList } = this.$refs.preview
+        className.includes('hide') && classList.remove('hide')
+      })
+    },
+    onClosePreview() {
+      this.previewImage = null
     }
   }
 })

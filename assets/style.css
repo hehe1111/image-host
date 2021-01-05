@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *,
 *::before,
 *::after {
@@ -7,7 +8,7 @@
           box-sizing: border-box;
 }
 
-.transform300ms, #app .images .image-container .image-info, #app .images .image-container .copy-link, #app .copy-success {
+.transform300ms, #app .images .image-container .image-info, #app .images .image-container .copy-link, #app .copy-success, #app .preview.zoom-enter-active, #app .preview.zoom-leave-active, #app .preview .close:active {
   -webkit-transition: -webkit-transform 0.3s;
   transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
@@ -20,6 +21,7 @@
 }
 
 #app {
+  min-height: 100vh;
   position: relative;
   padding-top: 0.1px;
 }
@@ -141,4 +143,54 @@
 #app .copy-success.show {
   -webkit-transform: translateY(0);
           transform: translateY(0);
+}
+
+#app .preview {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#app .preview.zoom-enter, #app .preview.zoom-leave-to {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+#app .preview.hide {
+  /* 解决刷新页面时 defer 脚本导致的 .preview 元素闪现的问题 */
+  display: none;
+}
+
+#app .preview .close {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  background-color: #fff;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 20px;
+  line-height: 40px;
+}
+
+#app .preview .close:active {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
 }

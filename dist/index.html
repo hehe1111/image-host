@@ -17,7 +17,13 @@
         </template>
         <template v-else>
           <div v-for="i in images" :key="i.name" class="image-container">
-            <img src="../assets/loading.png" :data-src="i.path" :alt="i.name" />
+            <img
+              src="../assets/loading.png"
+              :data-src="i.path"
+              :alt="i.name"
+              @click="onPreview(i)"
+              class="lazy-loading-image"
+            />
             <div class="image-info">
               <p>{{ i.name }}</p>
               <p class="size">
@@ -32,10 +38,23 @@
       </div>
 
       <div ref="copySuccess" class="copy-success">复制成功</div>
+
+      <transition name="zoom">
+        <div
+          v-if="previewImage"
+          @wheel.prevent.stop
+          @touchmove.prevent.stop
+          ref="preview"
+          class="preview hide"
+          :style="`background-image: url(${previewImage.path})`"
+        >
+          <button @click="onClosePreview" class="close">X</button>
+        </div>
+      </transition>
     </div>
 
     <script src="../vendor/vue.min.js" defer="true"></script>
     <script src="../assets/main.js" defer="true"></script>
-    <script type="application/json" id="__images_path__">[{"path":"../assets/images/1.png","name":"1.png","size":1,"wh":{"height":400,"width":600,"type":"png"}},{"path":"../assets/images/wallhaven-j8oe3y.png","name":"wallhaven-j8oe3y.png","size":4053,"wh":{"height":2160,"width":3840,"type":"png"}},{"path":"../assets/images/bg2020091310.jpg","name":"bg2020091310.jpg","size":42,"wh":{"height":436,"width":700,"type":"jpg"}}]</script>
+    <script type="application/json" id="__images_path__">[{"path":"../assets/images/1.png","name":"1.png","size":1,"wh":{"width":600,"height":400}},{"path":"../assets/images/wallhaven-j8oe3y.png","name":"wallhaven-j8oe3y.png","size":4053,"wh":{"width":3840,"height":2160}},{"path":"../assets/images/bg2020091310.jpg","name":"bg2020091310.jpg","size":42,"wh":{"width":700,"height":436}}]</script>
 </body>
 </html>
