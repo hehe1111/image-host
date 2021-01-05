@@ -16,14 +16,17 @@ globby(patterns).then(images => {
     .replace(
       '</body>',
       `  <script type="application/json" id="__images_path__">${JSON.stringify(
-        images.map(i => ({
-          path: `../${i}`,
-          name: i.slice(i.lastIndexOf('/') + 1),
-          // http://nodejs.cn/api/fs.html#fs_fs_statsync_path_options
-          // http://nodejs.cn/api/fs.html#fs_stats_size
-          size: Math.ceil(fs.statSync(i).size / 1024),
-          wh: sizeOf(i)
-        }))
+        images.map(i => {
+          const { width, height } = sizeOf(i) // 过滤掉多余的 type
+          return {
+            path: `../${i}`,
+            name: i.slice(i.lastIndexOf('/') + 1),
+            // http://nodejs.cn/api/fs.html#fs_fs_statsync_path_options
+            // http://nodejs.cn/api/fs.html#fs_stats_size
+            size: Math.ceil(fs.statSync(i).size / 1024),
+            wh: { width, height }
+          }
+        })
       )}</script>\n</body>`
     )
   fs.writeFileSync(DIST_HTML, html, { flag: 'w' })
