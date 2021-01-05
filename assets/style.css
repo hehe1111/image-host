@@ -23,6 +23,7 @@
 
 #app {
   min-height: 100vh;
+  background-color: #dadada;
   position: relative;
   padding-top: 0.1px;
 }
