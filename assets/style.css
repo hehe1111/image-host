@@ -97,7 +97,7 @@
 
 #app .images .image-container .image-info {
   width: 100%;
-  padding: 10px 4px;
+  padding: 4px 10px;
   background-color: rgba(0, 0, 0, 0.6);
   position: absolute;
   bottom: 0;
@@ -105,13 +105,17 @@
           transform: translateY(100%);
   color: #fff;
   font-size: 14px;
+  cursor: copy;
+}
+
+#app .images .image-container .image-info p {
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-#app .images .image-container .image-info .size {
+#app .images .image-container .image-info p.size {
   margin-top: 4px;
 }
 

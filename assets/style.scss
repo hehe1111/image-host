@@ -68,7 +68,7 @@ $translucentGrey: rgba(0, 0, 0, 0.6);
 
       .image-info {
         width: 100%;
-        padding: 10px 4px;
+        padding: 4px 10px;
         background-color: $translucentGrey;
         position: absolute;
         bottom: 0;
@@ -76,13 +76,16 @@ $translucentGrey: rgba(0, 0, 0, 0.6);
         @extend .transform300ms;
         color: #fff;
         font-size: 14px;
-        text-align: center;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        cursor: copy;
 
-        .size {
-          margin-top: 4px;
+        p {
+          text-align: center;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          &.size {
+            margin-top: 4px;
+          }
         }
       }
     }
