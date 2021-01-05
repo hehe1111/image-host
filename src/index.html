@@ -50,7 +50,11 @@
           :style="`background-image: url(${previewImage.path})`"
         >
           <button @click="onClosePreview" class="close">X</button>
-          <a :download="createImageLink(previewImage.path)" class="download"
+          <!-- https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a -->
+          <a
+            :href="createImageLink(previewImage.path)"
+            :download="createImageLink(previewImage.path)"
+            class="download"
             >⬇</a
           >
         </div>
