@@ -81,7 +81,11 @@ TODO:
 
 - [`<a>` - MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a)
 
+`download` 属性值会作为下载完成后的文件名
+
 > `download` 属性仅适用于**同源 URL**。
+>
+> 此属性对允许的值没有限制，但是 `/` 和 `\` 会被转换为下划线。大多数文件系统限制了文件名中的标点符号，故此，浏览器将相应地调整建议的文件名。
 >
 > 尽管 HTTP URL 需要位于同一源中，但是可以使用 blob: URL 和 data: URL ，以方便用户下载使用 JavaScript 生成的内容（例如使用在线绘图 Web 应用程序创建的照片）。
 
