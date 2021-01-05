@@ -126,7 +126,7 @@ $translucentGrey: rgba(0, 0, 0, 0.6);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     &.zoom-enter-active,
