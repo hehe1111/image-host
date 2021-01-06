@@ -97,7 +97,7 @@ TODO:
 
 - [typicode/husky](https://github.com/typicode/husky/tree/master)
   - Supported hooks: [githooks](https://git-scm.com/docs/githooks)
-- 类似的库：`pre-commit`
+- 类似的库：`pre-commit` - [observing/pre-commit](https://github.com/observing/pre-commit)
 
 ## 参考链接
 
