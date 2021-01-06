@@ -89,6 +89,18 @@ TODO:
 >
 > 尽管 HTTP URL 需要位于同一源中，但是可以使用 blob: URL 和 data: URL ，以方便用户下载使用 JavaScript 生成的内容（例如使用在线绘图 Web 应用程序创建的照片）。
 
+## 使用 `<script type="application/json">` 读写数据
+
+- [How can I read a JSON in the script-tag from JavaScript?](https://stackoverflow.com/a/7956249/14449377)
+
+## 使用 husky
+
+- [typicode/husky](https://github.com/typicode/husky/tree/master)
+  - Supported hooks: [githooks](https://git-scm.com/docs/githooks)
+- 类似的库：`pre-commit`
+
 ## 参考链接
 
-- [host github pages from /dist folder in master branch](https://stackoverflow.com/a/42501045/14449377)
+- [每个人都需要 github，每个人都需要图床，so，github = 图床](https://juejin.cn/post/6906791889777721352)
+  - [MatrixAges/picpic](https://github.com/MatrixAges/picpic)
+  - [PicPic](https://matrixage.github.io/picpic_example/)
